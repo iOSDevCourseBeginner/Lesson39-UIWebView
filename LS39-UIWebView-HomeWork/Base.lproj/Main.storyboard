@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14C109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="Ui5-KH-5qR">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+    </dependencies>
+    <scenes>
+        <!--Root View Controller-->
+        <scene sceneID="fvM-2m-2ZE">
+            <objects>
+                <tableViewController id="1Yo-S7-uhE" customClass="NBTableViewController" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="kWQ-s5-GKj">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" id="bXO-YM-pU2">
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="bXO-YM-pU2" id="HkW-L7-SH8">
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="1Yo-S7-uhE" id="Dxi-hs-f1R"/>
+                            <outlet property="delegate" destination="1Yo-S7-uhE" id="Sea-cu-1u6"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Root View Controller" id="cFB-oi-Fez"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="YLJ-oB-WdC" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="787" y="427"/>
+        </scene>
+        <!--WebV Iew Controller-->
+        <scene sceneID="aM2-Ds-A73">
+            <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ITp-dF-5GR" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <viewController storyboardIdentifier="NBWebViewController" id="Os5-xu-IDb" customClass="NBWebVIewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="B9r-DY-bl5"/>
+                        <viewControllerLayoutGuide type="bottom" id="r6F-m9-1bl"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="gnR-FE-0VH">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IeX-kC-bd0">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <outlet property="delegate" destination="Os5-xu-IDb" id="GvO-mt-aBC"/>
+                                </connections>
+                            </webView>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="bqc-3d-nqW">
+                                <rect key="frame" x="290" y="290" width="20" height="20"/>
+                            </activityIndicatorView>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pzT-Hw-0pm">
+                                <rect key="frame" x="0.0" y="556" width="600" height="44"/>
+                                <items>
+                                    <barButtonItem image="back.png" style="plain" id="w0x-ia-Key" userLabel="backButton">
+                                        <connections>
+                                            <action selector="moveBack:" destination="Os5-xu-IDb" id="jso-Qo-Nni"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem width="42" style="plain" systemItem="fixedSpace" id="0xo-6S-8h8"/>
+                                    <barButtonItem image="forward.png" id="LcM-mu-Qoj" userLabel="forwardButton">
+                                        <connections>
+                                            <action selector="moveForward:" destination="Os5-xu-IDb" id="03d-Rd-qOX"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="Oq0-iA-50y"/>
+                                    <barButtonItem image="reload.png" id="UVX-fo-3Ql" userLabel="reloadButton">
+                                        <connections>
+                                            <action selector="reloadData:" destination="Os5-xu-IDb" id="cQv-E7-glL"/>
+                                        </connections>
+                                    </barButtonItem>
+                                </items>
+                                <connections>
+                                    <outlet property="delegate" destination="Os5-xu-IDb" id="5mq-wn-Y0J"/>
+                                </connections>
+                            </toolbar>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="IeX-kC-bd0" firstAttribute="top" secondItem="gnR-FE-0VH" secondAttribute="topMargin" id="29a-co-eZR"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="IeX-kC-bd0" secondAttribute="trailing" constant="-16" id="2lC-ec-DVS"/>
+                            <constraint firstAttribute="centerY" secondItem="bqc-3d-nqW" secondAttribute="centerY" id="4V0-oY-YWF"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="pzT-Hw-0pm" secondAttribute="trailing" constant="-16" id="Dxd-nB-MvI"/>
+                            <constraint firstItem="pzT-Hw-0pm" firstAttribute="leading" secondItem="gnR-FE-0VH" secondAttribute="leadingMargin" constant="-16" id="OIU-gd-GPv"/>
+                            <constraint firstAttribute="centerX" secondItem="bqc-3d-nqW" secondAttribute="centerX" id="Yaj-oo-rda"/>
+                            <constraint firstItem="IeX-kC-bd0" firstAttribute="leading" secondItem="gnR-FE-0VH" secondAttribute="leadingMargin" constant="-16" id="v5N-vI-re5"/>
+                            <constraint firstItem="r6F-m9-1bl" firstAttribute="top" secondItem="pzT-Hw-0pm" secondAttribute="bottom" id="vuw-mf-bcb"/>
+                            <constraint firstItem="r6F-m9-1bl" firstAttribute="top" secondItem="IeX-kC-bd0" secondAttribute="bottom" id="yh1-cQ-Xdb"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="backButton" destination="w0x-ia-Key" id="2mL-Fb-JA5"/>
+                        <outlet property="forwardButton" destination="LcM-mu-Qoj" id="o4s-NY-4qk"/>
+                        <outlet property="loadIndicator" destination="bqc-3d-nqW" id="iN6-Xu-RB1"/>
+                        <outlet property="reloadButton" destination="UVX-fo-3Ql" id="0Lf-bh-t9S"/>
+                        <outlet property="webView" destination="IeX-kC-bd0" id="gwU-B9-x6Q"/>
+                    </connections>
+                </viewController>
+            </objects>
+            <point key="canvasLocation" x="1469" y="427"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="EKB-4H-acb">
+            <objects>
+                <navigationController id="Ui5-KH-5qR" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="WxD-qR-CJ4">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="1Yo-S7-uhE" kind="relationship" relationship="rootViewController" id="brv-ce-eK9"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Pds-QR-ypf" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-33" y="427"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="back.png" width="10" height="30"/>
+        <image name="forward.png" width="10" height="30"/>
+        <image name="reload.png" width="28" height="30"/>
+    </resources>
+</document>
